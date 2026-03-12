@@ -1,0 +1,74 @@
+---
+
+num_rounds: 5 # 40 default
+num_clients: 100
+mal_clients: 40
+percent_malicious: 0.6
+attack_type: "label_flipping" # label_flipping | data_poisoning | backdoor
+attack_mode: "untargeted" # untargeted | targeted
+partition_type: "iid" # iid | dirichlet | shard
+batch_size: 16
+val_ratio: 0.1
+attack_fraction: 0.9
+attack_interval: 2
+num_classes: 10
+num_clients_per_round_fit: 40
+num_clients_per_round_eval: 40
+# mnsit series config
+config_fit:
+  lr: 0.001
+  momentum: 0.9
+  local_epochs: 2
+
+# cifar series config
+# config_fit:
+#   lr: 0.003
+#   momentum: 0.9
+#   local_epochs: 5
+
+# svhn series config
+# config_fit:
+#   lr: 0.01
+#   momentum: 0.9
+#   local_epochs: 3
+
+evaluate_fn:
+  num_classes: ${num_classes}
+  testloader: testloader
+
+dataset_name: mnist # fashion_mnist | cifar10 | svhn | gtsrb32 | tinyimagenet32
+aux_dataset_name: mnist # mnist | kmnist | qmnist | random | gan | vae | augmented
+client_dataset_size: 500 # 500
+testset_size: 200
+aux_percent: 0.2
+threshold: 0.5
+
+datasets:
+  fmnist: fashion_mnist
+  mnist: mnist
+  cifar10: get_cifar10
+  svhn: get_svhn
+
+
+dataset: ${datasets.${dataset_name}}
+
+models:
+  fmnist: model.Net
+  fashion_mnist: model.Net
+  mnist: model.Net
+  kmnist: model.Net
+  qmnist: model.Net
+  cifar10: model.CIFAR10Net
+  svhn: model.CIFAR10Net
+  gtsrb32: model.CIFAR10Net
+  tinyimagenet32: model.CIFAR10Net
+
+
+model: 
+  _target_: ${models.${dataset_name}}
+  num_classes: ${num_classes}
+
+defaults: 
+  - _self_
+  - strategy: ntn # ntn | agg | agg_median | fools_gold | lfighter | 7_conda | 8_federaser
+  
