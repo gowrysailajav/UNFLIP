@@ -1,0 +1,31 @@
+_target_: 0_ntn.create_strategy
+fraction_fit: 0.1
+min_fit_clients: ${num_clients_per_round_fit}
+fraction_evaluate: 0.1
+min_evaluate_clients: ${num_clients_per_round_eval}
+min_available_clients: ${num_clients_per_round_fit}
+num_classes: ${num_classes}
+on_fit_config_fn:
+  _target_: server.get_on_fit_config
+  config: ${config_fit}
+model: ${model}
+fit_metrics_aggregation_fn:
+  _target_: server.fit_metrics_aggregation_fn
+evaluate_metrics_aggregation_fn:
+  _target_: server.evaluate_metrics_aggregation_fn
+config: ${config_fit}
+mal_clients: ${mal_clients}
+num_clients: ${num_clients}
+percent_malicious: ${percent_malicious}
+# agg_mode: ${agg_mode}
+dataset_name: ${dataset_name}
+aux_dataset_name: ${aux_dataset_name}
+trainset_size: ${client_dataset_size} # 500
+testset_size: ${testset_size}
+partition_type: ${partition_type}
+batch_size: ${batch_size}
+client_dataset_size: ${client_dataset_size}
+aux_percent: ${aux_percent}
+attack_interval: ${attack_interval}
+num_rounds: ${num_rounds}
+threshold: ${threshold}
