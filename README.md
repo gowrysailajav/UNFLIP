@@ -3,7 +3,7 @@ UNFLIP: A Federated Unlearning Framework for Label Flipping Resilience under IID
 
 📌 Overview
 
-UNFLIP is a federated unlearning framework for label flipping resilience to keep the model working even if anywhere from 0\% to 100\% of the clients are malicious. 
+SOUL is a soft optimization through unified trajectory alignment framework against free-rider attacks in Non-IID Federated Learning. 
 
 🎯 Key Objectives
 
@@ -21,11 +21,11 @@ UNFLIP/
 │
 ├── conf/
 │   ├── strategy/
-│   │   ├── ntn.yaml
+│   │   ├── soul.yaml
 │   ├── base.yaml
 │
 │
-├── ntn.py
+├── soul.py
 ├── client.py
 ├── counter.txt
 ├── dataset.py
