@@ -1,4 +1,4 @@
-UNFLIP: A Federated Unlearning Framework for Label Flipping Resilience under IID and Non-IID Data
+SOUL : Soft Optimization through Unified Trajectory Alignment against Free-Rider Attacks in Non-IID Federated Learning
 
 
 📌 Overview
