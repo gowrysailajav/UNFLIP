@@ -1,9 +1,4 @@
-SOUL : Soft Optimization through Unified Trajectory Alignment against Free-Rider Attacks in Non-IID Federated Learning
-
-
-📌 Overview
-
-SOUL is a soft optimization through unified trajectory alignment framework against free-rider attacks in Non-IID Federated Learning. 
+UNFLIP is a federated unlearning framework for label flipping resilience to keep the model working even if anywhere from 0\% to 100\% of the clients are malicious. 
 
 🎯 Key Objectives
 
@@ -21,11 +16,11 @@ UNFLIP/
 │
 ├── conf/
 │   ├── strategy/
-│   │   ├── soul.yaml
+│   │   ├── ntn.yaml
 │   ├── base.yaml
 │
 │
-├── soul.py
+├── ntn.py
 ├── client.py
 ├── counter.txt
 ├── dataset.py
@@ -41,3 +36,5 @@ UNFLIP/
 Running a Sample Experiment: 
 
 python main.py
+
+
